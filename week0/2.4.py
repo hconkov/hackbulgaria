@@ -1,6 +1,11 @@
-def meal(number):
-	list1 = []
-	for n in range(0,10):
-		list1.append(3**n)
-	return(list1)
-print(meal(3))
+def meal(n):
+	count = 0
+
+	spam = ''
+	while n % 3 != 0:
+		n = n//3
+		count += 1
+	if n % 5 == 0:
+		return(count * 'spam' + 'and eggs')
+	else:
+		return(count * 'spam')
