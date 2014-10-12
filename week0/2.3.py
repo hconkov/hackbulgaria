@@ -1,3 +1,3 @@
 def groupby(func, seq):
-  return(itertools.groupby(seq, func))
+  return(seq.sort([func]))
   
