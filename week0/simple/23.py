@@ -5,6 +5,6 @@ def nan_expand(times):
     elif times == 1:
         return("Not a NaN")
     elif times > 1:
-        key = times*"Not a " + key
+        key = times * "Not a " + key
     return(key)
-print(nan_expand(10))    
+print(nan_expand(10))

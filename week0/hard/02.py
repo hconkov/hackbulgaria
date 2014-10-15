@@ -4,4 +4,4 @@ def unique_words(arr):
         if i not in arrs:
             arrs.append(i)
     return(arrs)
-print(unique_words(['python','python','apple']))
+print (unique_words(['python', 'python', 'apple']))

@@ -1,3 +1,3 @@
 def groupby(func, seq):
-  return(seq.sort([func]))
-  
+    print (seq.sort(key=func))
+print(groupby(lambda x: x % 2, [0, 1, 2, 3, 4, 5, 6, 7]))
