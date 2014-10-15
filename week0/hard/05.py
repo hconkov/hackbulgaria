@@ -1,4 +1,5 @@
 def reduce_file_path(path):
+    indexes = []
     reduced = path.replace('/./', '/')
     while '//' in reduced:
         reduced = reduced.replace('//', '/')
@@ -6,12 +7,18 @@ def reduce_file_path(path):
         reduced = reduced[:len(reduced) - 2]
     print reduced
     list1 = reduced.split('/', reduced.count('/'))
+    for n in range(0, len(list1)-1):
+        if list1[n] == '..':
+            indexes.append(n)
+    for i in indexes:
+        list1.remove(list1[i])
+        list1.remove(list1[i-1])
     print list1
-    for n in list1[1::]:
-        if n == '..':
-            list1.remove(n)
+    for x in list1:
+        reduced += x
+        print x
     if reduced == '':
         return '/'
     else:
         return reduced
-print reduce_file_path('///../dadss/dasdsa//dsads////')
+print reduce_file_path('///dasdass/../dasdsas//dsads////')
