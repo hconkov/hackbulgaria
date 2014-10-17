@@ -1,6 +1,5 @@
 def meal(n):
     count = 0
-
     spam = ''
     while n % 3 != 0:
         n = n // 3
