@@ -1,6 +1,7 @@
 import unittest
 
 from hero import Hero
+from weapon import Weapon
 
 
 class TestHero(unittest.TestCase):
@@ -63,6 +64,22 @@ class TestHero(unittest.TestCase):
         healing_result = new_hero.take_healing(40)
         self.assertEqual(new_hero.get_health(), 120)
         self.assertTrue(healing_result)
+
+    def test_has_weapon_and_equip_weapon(self):
+        new_hero = Hero("Ico", 100, "old man")
+        new_weapon = Weapon("Axe", 25, 0.2)
+        self.assertFalse(new_hero.has_weapon())
+        new_hero.equip_weapon(new_weapon)
+        self.assertTrue(new_hero.has_weapon())
+
+    def test_attack(self):
+        new_hero = Hero("Ico", 100, "old man")
+        new_weapon = Weapon("Axe", 25, 0.2)
+        self.assertFalse(new_hero.has_weapon())
+        self.assertEqual(new_hero.attack(), 0)
+        new_hero.equip_weapon(new_weapon)
+        self.assertTrue(new_hero.has_weapon())
+        self.assertEqual(new_hero.attack(), 25)
 
 if __name__ == '__main__':
     unittest.main()
